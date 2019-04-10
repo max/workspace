@@ -4,7 +4,7 @@
 
 - Install the tools that I use on a daily basis:
   - 1Password for credentials
-  - ~~git~~ and hub
+  - ~~git and hub~~
   - git completion
   - gcloud
   - ~~vim~~
