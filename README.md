@@ -11,3 +11,4 @@
   - ~~basic vim setup (spaces, not tabs, indentation)~~
   - tmux?
   - ~~zsh~~
+  - docker
