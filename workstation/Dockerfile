@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
   git \
+  locales \
   software-properties-common \
   wget \
   zsh \
@@ -11,6 +12,15 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN add-apt-repository ppa:jonathonf/vim -y && apt-get update && apt-get install vim-gtk3 -y
+
+ENV LANG="en_US.UTF-8"
+ENV LC_ALL="en_US.UTF-8"
+ENV LANGUAGE="en_US.UTF-8"
+
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+	locale-gen --purge $LANG && \
+	dpkg-reconfigure --frontend=noninteractive locales && \
+	update-locale LANG=$LANG LC_ALL=$LC_ALL LANGUAGE=$LANGUAGE
 
 # vim plugins
 RUN mkdir -p /root/.vim/pack/plugins/start && cd /root/.vim/pack/plugins/start && \
