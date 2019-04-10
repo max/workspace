@@ -11,7 +11,8 @@ FROM ubuntu:18.10 as vim_plugins_builder
 RUN apt-get update && apt-get install -y git ca-certificates
 RUN mkdir -p /root/.vim/pack/plugins/start && cd /root/.vim/pack/plugins/start && \
   git clone https://github.com/Raimondi/delimitMate && \
-  git clone https://github.com/scrooloose/nerdtree
+  git clone https://github.com/scrooloose/nerdtree && \
+  git clone https://github.com/sheerun/vim-polyglot
 
 # base OS
 FROM ubuntu:18.10
