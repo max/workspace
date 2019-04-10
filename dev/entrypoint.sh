@@ -5,10 +5,10 @@ set -e
 if [ ! -d ~/code/dotfiles ]; then
   echo "Cloning dotfiles"
   cd ~/code
-  git clone git@github.com:max/dotfiles.git
+  git clone git@github.com:max/workspace.git
 fi
 
-cd ~/code/dotfiles
+cd ~/code/workspace
 
 ln -s $(pwd)/vimrc ~/.vimrc
 ln -s $(pwd)/zshrc ~/.zshrc
