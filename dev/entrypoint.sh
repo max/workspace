@@ -2,7 +2,7 @@
 
 set -e
 
-if [ ! -d ~/code/dotfiles ]; then
+if [ ! -d ~/code/workspace ]; then
   echo "Cloning dotfiles"
   cd ~/code
   git clone git@github.com:max/workspace.git
