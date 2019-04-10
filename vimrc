@@ -10,3 +10,6 @@ nnoremap ; :
 
 " quick switch to normal mode
 inoremap kj <esc>
+
+" toggle NERDTree
+nnoremap <silent> \ :NERDTreeToggle<cr>
