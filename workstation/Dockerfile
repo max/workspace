@@ -20,6 +20,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
   ca-certificates \
+  docker.io \
   git \
   openssh-server \
   locales \
