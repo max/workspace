@@ -1,3 +1,11 @@
+# install act
+FROM ubuntu:18.10 as act_builder
+RUN apt-get update && apt-get install -y wget ca-certificates
+RUN wget https://github.com/nektos/act/releases/download/v0.1.2/act_Linux_x86_64.tar.gz && \
+  tar xzf act_Linux_x86_64.tar.gz act && \
+  chmod +x act && \
+  mv act /usr/local/bin
+
 # install hub
 FROM ubuntu:18.10 as hub_builder
 RUN apt-get update && apt-get install -y wget ca-certificates
@@ -40,6 +48,9 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
 	locale-gen --purge $LANG && \
 	dpkg-reconfigure --frontend=noninteractive locales && \
 	update-locale LANG=$LANG LC_ALL=$LC_ALL LANGUAGE=$LANGUAGE
+
+# act
+COPY --from=act_builder /usr/local/bin/act /usr/local/bin/
 
 # hub
 COPY --from=hub_builder /usr/local/bin/hub /usr/local/bin/
